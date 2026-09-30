@@ -20,12 +20,33 @@ int main(){
     while (c != 7) {
         cout << "\n1.AddFront 2.AddTail 3.DelNode 4.Insert 5.DelAll 6.Print 7.Exit\nPick: ";
         cin >> c;
-        
+
         while (cin.fail() || c < 1 || c > 7) {
             cin.clear();
             cin.ignore(999, '\n');
             cout << "Bad input. Pick 1-7: ";
             cin >> c;
         }
+
+        switch(c) {
+            case 1: addF(h); break;
+            case 2: addT(h); break;
+            case 3: del(h); break;
+            case 4: ins(h); break; // Sorted insert
+            case 5: delAll(h); break;
+            case 6: prt(h); break;
+        }
     }
+}
+
+void addF(Node *&h) {
+    int v; cout << "Val: "; cin >> v;
+    h = new Node{v, h};
+}
+
+void addT(Node *&h) {
+    int v; cout << "Val: "; cin >> v;
+    Node* t = new Node{v, nullptr};
+    
+
 }
