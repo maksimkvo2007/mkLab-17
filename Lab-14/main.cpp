@@ -9,19 +9,23 @@ private: //had to search up about this as i've never used it
     int blue;
 
 public:
-    Color(){
+    Color(){ //default
         red = 0;
         blue = 0;
         green = 0;
     }
 
-    Color(int r, int g, int b){
+    Color(int r, int g, int b){ //parameter
         red = r;
         green = g;
         blue = b;
     }
 
-
+    Color(int r) { //partial
+        red = r;
+        green = 0;
+        blue = 0;
+    }
 
     void setRed(int r) {
         red = r;
@@ -57,8 +61,15 @@ public:
 
 int main(){
     Color color1;
-    Color color2;
-    Color color3;
+    Color color2(0, 0, 255);
+    Color color3(100);
 
+    cout << "Color 1: "; //default
+    color1.print();
 
+    cout << "Color 2: ";//parameter
+    color2.print();
+
+    cout << "Color 3: ";//partial
+    color3.print();
 }
