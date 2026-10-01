@@ -4,6 +4,11 @@ using namespace std;
 struct Node {
     int d;
     Node* n;
+
+    Node(int data, Node* next) {
+        d = data;
+        n = next;
+    }
 };
 
 void addF(Node *&h);
@@ -41,12 +46,12 @@ int main(){
 
 void addF(Node *&h) {
     int v; cout << "Val: "; cin >> v;
-    h = new Node{v, h};
+    h = new Node(v, h);
 }
 
 void addT(Node *&h) {
     int v; cout << "Val: "; cin >> v;
-    Node* t = new Node{v, nullptr};
+    Node* t = new Node(v, nullptr);
     if (!h) { 
         h = t; return; 
     }
@@ -74,7 +79,7 @@ void del(Node *&h) {
 
 void ins(Node *&h) {
     int v; cout << "Ins val: "; cin >> v;
-    Node* t = new Node{v, nullptr};
+    Node* t = new Node(v, nullptr);
     
     if (!h || h->d >= v) { t->n = h; h = t; return; }
     
