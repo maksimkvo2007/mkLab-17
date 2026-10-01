@@ -47,6 +47,27 @@ void addF(Node *&h) {
 void addT(Node *&h) {
     int v; cout << "Val: "; cin >> v;
     Node* t = new Node{v, nullptr};
+    if (!h) { 
+        h = t; return; 
+    }
     
+    Node* p = h;
+    while (p->n) p = p->n;
+    p->n = t;
 
+}
+
+void del(Node *&h) {
+    if (!h) return;
+    int v; cout << "Del val: "; cin >> v;
+    
+    if (h->d == v) {
+        Node* t = h; h = h->n; delete t; return;
+    }
+    
+    Node* p = h;
+    while (p->n && p->n->d != v) p = p->n;
+    if (p->n) {
+        Node* t = p->n; p->n = t->n; delete t;
+    }
 }
