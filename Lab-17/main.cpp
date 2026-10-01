@@ -71,3 +71,32 @@ void del(Node *&h) {
         Node* t = p->n; p->n = t->n; delete t;
     }
 }
+
+void ins(Node *&h) {
+    int v; cout << "Ins val: "; cin >> v;
+    Node* t = new Node{v, nullptr};
+    
+    if (!h || h->d >= v) { t->n = h; h = t; return; }
+    
+    Node* p = h;
+    while (p->n && p->n->d < v) p = p->n;
+    t->n = p->n;
+    p->n = t;
+}
+
+void delAll(Node *&h) {
+    while (h) {
+        Node* t = h;
+        h = h->n;
+        delete t;
+    }
+    cout << "Cleared.\n";
+}
+
+void prt(Node *h) {
+    while (h) {
+        cout << h->d << " ";
+        h = h->n;
+    }
+    cout << "\n";
+}
