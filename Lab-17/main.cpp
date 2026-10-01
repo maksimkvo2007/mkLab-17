@@ -44,12 +44,12 @@ int main(){
     }
 }
 
-void addF(Node *&h) {
+void addF(Node *&h) { //Adds to front
     int v; cout << "Val: "; cin >> v;
     h = new Node(v, h);
 }
 
-void addT(Node *&h) {
+void addT(Node *&h) { //Adds to tail
     int v; cout << "Val: "; cin >> v;
     Node* t = new Node(v, nullptr);
     if (!h) { 
@@ -62,7 +62,7 @@ void addT(Node *&h) {
 
 }
 
-void del(Node *&h) {
+void del(Node *&h) { //deletes a node
     if (!h) return;
     int v; cout << "Del val: "; cin >> v;
     
@@ -77,7 +77,7 @@ void del(Node *&h) {
     }
 }
 
-void ins(Node *&h) {
+void ins(Node *&h) { //inserting node
     int v; cout << "Ins val: "; cin >> v;
     Node* t = new Node(v, nullptr);
     
@@ -89,7 +89,7 @@ void ins(Node *&h) {
     p->n = t;
 }
 
-void delAll(Node *&h) {
+void delAll(Node *&h) { //clearing the list
     while (h) {
         Node* t = h;
         h = h->n;
@@ -98,7 +98,7 @@ void delAll(Node *&h) {
     cout << "Cleared.\n";
 }
 
-void prt(Node *h) {
+void prt(Node *h) { //printing the list
     while (h) {
         cout << h->d << " ";
         h = h->n;
